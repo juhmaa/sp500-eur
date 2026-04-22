@@ -1,7 +1,7 @@
 S&P 500 in EUR --- Portfolio Performance feed
 ===========================================
 
-This repository automatically generates a daily-updated HTML table of the S&P 500 index (^GSPC) with OHLC values converted from USD to EUR using the European Central Bank's official daily reference rates.
+Co-created with Claude. This repository automatically generates a daily-updated HTML table of the S&P 500 index (^GSPC) with OHLC values converted from USD to EUR using the European Central Bank's official daily reference rates.
 
 It is designed to be used as a custom benchmark index in [Portfolio Performance](https://www.portfolio-performance.info/) via the **"Table on Website"** quote feed.
 
