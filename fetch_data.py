@@ -36,7 +36,7 @@ def fetch_ecb_rates():
         "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
         f"?format=csvdata&startPeriod={START_DATE}"
     )
-        for attempt in range(4):
+    for attempt in range(4):
         try:
             resp = requests.get(url, timeout=60)
             resp.raise_for_status()
