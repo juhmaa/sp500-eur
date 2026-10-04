@@ -36,8 +36,17 @@ def fetch_ecb_rates():
         "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
         f"?format=csvdata&startPeriod={START_DATE}"
     )
-    resp = requests.get(url, timeout=30)
-    resp.raise_for_status()
+        for attempt in range(4):
+        try:
+            resp = requests.get(url, timeout=60)
+            resp.raise_for_status()
+            break
+        except requests.RequestException as exc:
+            if attempt == 3:
+                raise
+            wait = 30 * (attempt + 1)
+            print(f"  ECB request failed ({exc}); retrying in {wait}s...")
+            time.sleep(wait)
  
     # ECB CSV has a multi-line header; find the row containing TIME_PERIOD
     lines = resp.text.strip().split("\n")
