@@ -8,6 +8,7 @@ and writes an HTML table that Portfolio Performance can scrape.
 import yfinance as yf
 import requests
 import pandas as pd
+import time
 from io import StringIO
 from datetime import date
 import sys
